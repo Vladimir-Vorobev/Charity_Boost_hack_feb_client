@@ -1,7 +1,7 @@
 <template>
 <div>
     <main>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" style="margin: 0px;">
             <div class="col-10 col-md-11">
                 <h2>Профиль:</h2>
             </div>
@@ -20,6 +20,20 @@
                 <div>Ссылка на сайт: </div>
             </div>
         </div>
+        <hr>
+        <div class="row justify-content-between" style="margin: 0px;">
+            <div class="col-12 col-md-6 mt-1 mb-1">
+                <a href="#" class='btn btn-blue btn-almbb-small'>Добавить новый проект</a>
+            </div>
+            <div class="col-12 col-md-6 mt-1 mb-1" style="padding: 0px 5px;">
+                <a href="#" class='btn btn-blue btn-almbb-small'>Архив проектов</a>
+            </div>
+        </div>
+        <hr>
+        <h3>Текущие проекты:</h3>
+        <div class="row" style="margin: 0px;">
+            
+        </div>
     </main>
 </div>
 
@@ -34,7 +48,7 @@ export default {
 
 <style scoped>
 main {
-    padding-top: 70px;
+    padding: 70px 5px 0px;
 }
 @media (max-width:767px) {
     .info {
