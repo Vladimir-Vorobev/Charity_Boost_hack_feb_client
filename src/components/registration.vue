@@ -2,22 +2,47 @@
     <div class="main">
         <div class="container warp">
             <form class="formbox">
-                <h2>Регистрация</h2>
+                <h2 class="text-center">Форма регистрации для НКО</h2>
+                <div class="text-left">Пожалуйста, заполните форму и внимательно ознакомьтесь с Условиями пользования платформой. Поля со звездочкой(<span class="star">*</span>) обязательны к заполнению.</div><br>
                 <div v-if="reg == 0">
                     <div class="form-group row">
-                        <label for="exampleInputEmail1">Email адресс</label>
-                        <input type="email" name="email" class="form-control formInput" placeholder="example@gmail.com" required>
+                        <label for="exampleInputEmail1">Название фонда/НКО<span class="star">*</span></label>
+                        <input type="email" name="name" class="form-control formInput">
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputPassword1">Пароль</label>
-                        <input type="password" class="form-control formInput" name="password" placeholder="Пароль" required>
+                        <label for="exampleInputEmail1">Регистрационный номер<span class="star">*</span></label>
+                        <input type="email" name="number" class="form-control formInput">
                     </div>
                     <div class="form-group row">
-                        <label for="exampleInputPassword1">Повторите пароль</label>
-                        <input type="password" class="form-control formInput" name="password2" placeholder="Повторите пароль" required>
+                        <label for="exampleInputEmail1">Свидетельство о регистрации<span class="star">*</span></label>
+                        <input type="email" name="certificate" class="form-control formInput">
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputEmail1">Адрес электронной почты<span class="star">*</span> (для связи)</label>
+                        <input type="email" name="email" class="form-control formInput">
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputEmail1">Номер телефона<span class="star">*</span> (для связи)</label>
+                        <input type="email" name="phone" class="form-control formInput">
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputEmail1">Адрес<span class="star">*</span></label>
+                        <input type="email" name="address" class="form-control formInput">
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputEmail1">Ссылка на сайт</label>
+                        <input type="email" name="site" class="form-control formInput">
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputPassword1">Пароль<span class="star">*</span></label>
+                        <input type="password" class="form-control formInput" name="password">
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputPassword1">Повторите пароль<span class="star">*</span></label>
+                        <input type="password" class="form-control formInput" name="password2">
                     </div>
                     <div class="row"> 
-                        <button class="btn btn-rounded-blue btn-lg" @click="code()">Подтвердить регистрацию</button>
+                        <button class="btn btn-rounded-blue btn-lg" @click="code()">Отправить</button>
                     </div>
                 </div>
                 <div v-else>
@@ -184,5 +209,8 @@ export default {
 }
 .formInput{
     border-radius: 50px;
+}
+.star{
+    color: red;
 }
 </style>
