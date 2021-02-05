@@ -1,7 +1,7 @@
 <template>
         <nav class="navbar navbar-expand-lg navbar-light  fixed-top navStyle">
             <router-link to="/" class="router-link">
-                <a class="navbar-brand" ref="home" style="color: #f23333">ProjectName</a>
+                <a class="navbar-brand" ref="home" style="color: #303f9f">ProjectName</a> <!-- #f23333 -->
             </router-link>
             <button @click="animate_toggler()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="anim-bar-dark anim-2">
