@@ -14,7 +14,7 @@
 
 <script>
 export default {
-    name: 'projects',
+    name: 'now_projects',
 }
 </script>
 
