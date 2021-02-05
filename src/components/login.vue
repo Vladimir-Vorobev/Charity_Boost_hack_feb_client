@@ -48,13 +48,13 @@ export default {
                 return response.json()
             })
             .then((data) => {
-                if(data.data == 'incorrect_password'){
+                if(data == 'incorrect_password'){
                     Swal.fire({
                         icon: 'error',
                         text: 'Неверный логин или пароль'
                     });
                 }
-                else if(data.data == 'incorrect_email'){
+                else if(data == 'incorrect_email'){
                     Swal.fire({
                         icon: 'error',
                         text: 'Пользователь не найден'

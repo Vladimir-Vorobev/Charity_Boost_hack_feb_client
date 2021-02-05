@@ -50,6 +50,7 @@ export default {
     },
     methods: {
         code(){
+            event.preventDefault()
             let form = document.forms[0]
             let email = form.elements.email.value.replace(/\s/g, '')
             let password = form.elements.password.value
@@ -77,17 +78,18 @@ export default {
                     return response.json()
                 })
                 .then((data) => {
-                    if(data.data == 'incorrect_email'){
+                    if(data == 'incorrect_email'){
                         Swal.fire({
                             icon: 'error',
                             text: 'Пользователь с таким email уже существует'
                         });
                     }
-                    else if(data.data == 'send_code'){
+                    else if(data == 'send_code'){
                         Swal.fire({
                             icon: 'success',
                             text: 'Код подтверждения отправлен Вам на почту'
                         });
+                        this.reg = 1
                     }
                 })
                 .catch(err => {
@@ -100,6 +102,7 @@ export default {
             }
         },
         registration(){
+            event.preventDefault()
             let form = document.forms[0]
             let code = form.elements.code.value
             if(code.trim() == ''){
@@ -117,25 +120,25 @@ export default {
                     return response.json()
                 })
                 .then((data) => {
-                    if(data.data == 'incorrect_email'){
+                    if(data == 'incorrect_email'){
                         Swal.fire({
                             icon: 'error',
                             text: 'Пользователь с таким email уже существует'
                         });
                     }
-                    else if(data.data == 'incorrect_code'){
+                    else if(data == 'incorrect_code'){
                         Swal.fire({
                             icon: 'error',
                             text: 'Неверный код подтверждения'
                         });
                     }
-                    else if(data.data == 'code_time_out'){
+                    else if(data == 'code_time_out'){
                         Swal.fire({
                             icon: 'error',
                             text: 'Срок действия кода истек. Повторите попытку регистрации заново'
                         });
                     }
-                    else if(data.data == 'reg_in'){
+                    else if(data == 'reg_in'){
                         Swal.fire({
                             icon: 'success',
                             text: 'Регистрация прошла успешно',
