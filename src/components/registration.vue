@@ -3,7 +3,7 @@
         <div class="container warp">
             <form class="formbox">
                 <h2 class="text-center">Форма регистрации для НКО</h2>
-                <div class="text-left">Пожалуйста, заполните форму и внимательно ознакомьтесь с Условиями пользования платформой. Поля со звездочкой(<span class="star">*</span>) обязательны к заполнению.</div><br>
+                <div class="text-left" v-if="reg == 0">Пожалуйста, заполните форму и внимательно ознакомьтесь с Условиями пользования платформой. Поля со звездочкой(<span class="star">*</span>) обязательны к заполнению.</div><br>
                 <div v-if="reg == 0">
                     <div class="form-group row">
                         <label for="exampleInputEmail1">Название фонда/НКО<span class="star">*</span></label>
@@ -48,7 +48,7 @@
                 <div v-else>
                     <div class="form-group row">
                         <label for="exampleInputEmail1">Код подтверждения</label>
-                        <input name="code" class="form-control formInput" placeholder="Код" required>
+                        <input name="code" class="form-control formInput">
                     </div>
                     <div class="row"> 
                         <button class="btn btn-rounded-blue btn-lg" @click="registration()">Зарегистрироваться</button>
@@ -69,6 +69,12 @@ export default {
     data(){
         return{
             reg: 0,
+            name: '',
+            number: '',
+            certificate: '',
+            phone: '',
+            address: '',
+            site: '',
             email: '',
             password: '',
         }
@@ -77,12 +83,54 @@ export default {
         code(){
             event.preventDefault()
             let form = document.forms[0]
+            let name = form.elements.name.value
+            let number = form.elements.number.value
+            let certificate = form.elements.certificate.value
             let email = form.elements.email.value.replace(/\s/g, '')
+            let phone = form.elements.phone.value
+            let address = form.elements.address.value
+            let site = form.elements.site.value
             let password = form.elements.password.value
             let password2 = form.elements.password2.value
+            this.name = name
+            this.number = number
+            this.certificate = certificate
+            this.phone = phone
+            this. address = address
+            this.site = site
             this.email = email
             this.password = password
-            if(password.trim() == ''){
+            if(name.trim() == ''){
+                this.$swal({
+                    icon: 'warning',
+                    text: 'Введите название фонда/НКО'
+                });
+            }
+            else if(number.trim() == ''){
+                this.$swal({
+                    icon: 'warning',
+                    text: 'Введите регистрационный номер'
+                });
+            }
+            else if(certificate.trim() == ''){
+                this.$swal({
+                    icon: 'warning',
+                    text: 'Введите свидетельство о регистрации'
+                });
+            }
+            else if(phone.trim() == ''){
+                this.$swal({
+                    icon: 'warning',
+                    text: 'Введите номер телефона'
+                });
+            }
+            else if(address.trim() == ''){
+                this.$swal({
+                    icon: 'warning',
+                    text: 'Введите адрес'
+                });
+            }
+            else if(password.trim() == ''){
                 this.$swal({
                     icon: 'warning',
                     text: 'Введите пароль'
@@ -139,7 +187,7 @@ export default {
             else{
                 fetch(this.$store.state.serverIp + '/registration/', {
                     method: 'POST',
-                    body: JSON.stringify({email: this.email, password: this.password, code: code}),
+                    body: JSON.stringify({name: this.name, number: this.number, certificate: this.certificate, phone: this.phone, address: this.address, site: this.site, email: this.email, password: this.password, code: code}),
                 })
                 .then(response => {
                     return response.json()
