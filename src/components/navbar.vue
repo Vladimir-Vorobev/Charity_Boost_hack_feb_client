@@ -126,7 +126,8 @@ export default {
     -webkit-user-select: none;
 }
 .navStyle{
-    background-color: rgba(255,255,255,1);
+    /* background-color: rgba(255,255,255,1); */
+    background-color: #ffffff;
     box-shadow: 0px 1px 3px rgba(0,0,0,0.10);
 }
 </style>

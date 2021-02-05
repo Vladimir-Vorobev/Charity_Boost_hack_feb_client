@@ -50,7 +50,7 @@ body {
     width:100% !important; 
     height:100% !important;
     margin: 0px;
-    background-color: #eef5ff;
+    background-color: #ffffff;
     min-height: 100vh;
 }
 #app {
@@ -63,7 +63,7 @@ body {
   overflow: hidden;
   padding: 0px;
   margin: 0px;
-  background-color: #eef5ff;
+  background-color: #ffffff;
   min-height: 100vh;
 }
 </style>
