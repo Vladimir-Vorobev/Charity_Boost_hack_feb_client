@@ -9,6 +9,7 @@ import login from './components/login.vue'
 import registration from './components/registration.vue'
 import now_projects from './components/now_projects.vue'
 import market from './components/market.vue'
+import profile from './components/profile.vue'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
@@ -20,6 +21,7 @@ const routes = [
   { path: '/registration', component: registration },
   { path: '/now-projects', component: now_projects },
   { path: '/market', component: market },
+  { path: '/profile', component: profile },
 ]
 
 const router = new VueRouter({
