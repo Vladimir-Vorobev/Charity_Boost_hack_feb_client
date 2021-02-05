@@ -83,6 +83,8 @@ main {
     font-size: 1.3em;
     padding: 2px 10px;
     margin: 4px;
+    cursor: pointer;
+    user-select: none;
 }
 .categories ul li.active {
     margin: 1px;
