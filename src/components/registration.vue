@@ -3,7 +3,7 @@
         <div class="container warp">
             <form class="formbox">
                 <h2 class="text-center">Форма регистрации для НКО</h2>
-                <div class="text-left">Пожалуйста, заполните форму и внимательно ознакомьтесь с Условиями пользования платформой. Поля со звездочкой(<span class="star">*</span>) обязательны к заполнению.</div><br>
+                <div class="text-left" v-if="reg == 0">Пожалуйста, заполните форму и внимательно ознакомьтесь с Условиями пользования платформой. Поля со звездочкой(<span class="star">*</span>) обязательны к заполнению.</div><br>
                 <div v-if="reg == 0">
                     <div class="form-group row">
                         <label for="exampleInputEmail1">Название фонда/НКО<span class="star">*</span></label>
@@ -48,7 +48,7 @@
                 <div v-else>
                     <div class="form-group row">
                         <label for="exampleInputEmail1">Код подтверждения</label>
-                        <input name="code" class="form-control formInput" placeholder="Код" required>
+                        <input name="code" class="form-control formInput">
                     </div>
                     <div class="row"> 
                         <button class="btn btn-rounded-blue btn-lg" @click="registration()">Зарегистрироваться</button>
