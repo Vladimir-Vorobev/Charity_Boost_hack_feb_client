@@ -3,7 +3,7 @@
     <main>
         <div class="row justify-content-around">
             <div class="col-4 col-lg-2">
-                <h3>Помочь:</h3>
+                <h3 style="margin: 0px; padding: 6px 0px;">Помочь:</h3>
             </div>
             <div class="col-8 col-lg-10 categories">
                 <ul>
@@ -30,7 +30,7 @@ export default {
 
 <style scoped>
 main {
-    padding-top: 70px;
+    padding: 70px 5px 0px;
 }
 .categories ul {
     display: -webkit-flex;
@@ -43,6 +43,7 @@ main {
     margin: 0;
     padding: 0;
     width: 100%;
+    overflow-x: scroll;
 }
 .categories ul li {
     display: list-item;
