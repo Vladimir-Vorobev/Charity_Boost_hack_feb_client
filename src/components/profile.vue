@@ -23,10 +23,10 @@
         <hr>
         <div class="row justify-content-between" style="margin: 0px;">
             <div class="col-12 col-md-6 mt-1 mb-1">
-                <a href="#" class='btn btn-blue btn-almbb-small'>Добавить новый проект</a>
+                <router-link to="/add-project" class='btn btn-blue btn-almbb-small'>Добавить новый проект</router-link>
             </div>
             <div class="col-12 col-md-6 mt-1 mb-1" style="padding: 0px 5px;">
-                <a href="#" class='btn btn-blue btn-almbb-small'>Архив проектов</a>
+                <router-link to="/profile" class='btn btn-blue btn-almbb-small'>Архив проектов</router-link>
             </div>
         </div>
         <hr>
@@ -45,14 +45,8 @@ export default {
     name: 'profile',
     data(){
         return{
-            name: this.$store.state.name,
-            number: this.$store.state.number,
-            certificate: this.$store.state.certificate,
-            phone: this.$store.state.phone,
-            address: this.$store.state.address,
-            site: this.$store.state.site,
-            email: this.$store.state.email,
-            session_id: this.$store.state.SessionID,
+            email: this.$store.getters.email,
+            session_id: this.$store.getters.SessionID,
         }
     },
     beforeMount(){

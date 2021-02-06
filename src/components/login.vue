@@ -34,6 +34,9 @@ import Footer from './footer.vue';
 export default {
     name: 'login',
     components: { Footer },
+    beforeMount(){
+        if(this.store.getters.email != undefined) document.location.href = '/profile'
+    },
     methods: {
         loginUser(){
             event.preventDefault()

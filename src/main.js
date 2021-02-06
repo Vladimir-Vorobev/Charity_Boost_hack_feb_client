@@ -7,7 +7,7 @@ import App from './App.vue'
 import main_page from './components/main_page.vue'
 import login from './components/login.vue'
 import registration from './components/registration.vue'
-import now_projects from './components/now_projects.vue'
+import add_project from './components/add_project.vue'
 import market from './components/market.vue'
 import profile from './components/profile.vue'
 
@@ -19,7 +19,7 @@ const routes = [
   { path: '/', component: main_page },
   { path: '/login', component: login },
   { path: '/registration', component: registration },
-  { path: '/now-projects', component: now_projects },
+  { path: '/add-project', component: add_project },
   { path: '/market', component: market },
   { path: '/profile', component: profile },
 ]
