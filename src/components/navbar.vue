@@ -13,11 +13,6 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent" @click="animate_navbar()">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <router-link to="/" class="router-link">
-                            <a class="nav-link">Главная</a>
-                        </router-link>
-                    </li>
-                    <li class="nav-item">
                         <router-link to="/market" class="router-link">
                             <a class="nav-link">Помочь</a>
                         </router-link>
