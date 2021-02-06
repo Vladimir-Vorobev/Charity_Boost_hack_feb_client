@@ -9,54 +9,68 @@
                 <button class='btn btn-almbb-danger btn-almbb-small' @keyup.enter="notexit()" @click="exit()"><i class="fas fa-sign-out-alt"></i></button>
             </div>
         </div>
-        <div class="row justify-content-center" style="margin: 0px;">
-            <div class="col-12 info">
-                <div>Название фонда: {{this.$store.state.name}}</div>
-                <div>Регистрационный номер: {{this.$store.state.number}}</div>
-                <div>Свидетельство о регистрации: {{this.$store.state.certificate}}</div>
-                <div>Адрес электорнной почты: {{this.$store.state.email}}</div>
-                <div>Номер телефона: {{this.$store.state.phone}}</div>
-                <div>Адрес: {{this.$store.state.address}}</div>
-                <div>Ссылка на сайт: {{this.$store.state.site}}</div>
+        <div v-if="this.$store.state.role == 'fund'">
+            <div class="row justify-content-center" style="margin: 0px;">
+                <div class="col-12 info">
+                    <div>Название фонда: {{this.$store.state.name}}</div>
+                    <div>Регистрационный номер: {{this.$store.state.number}}</div>
+                    <div>Свидетельство о регистрации: {{this.$store.state.certificate}}</div>
+                    <div>Адрес электорнной почты: {{this.$store.state.email}}</div>
+                    <div>Номер телефона: {{this.$store.state.phone}}</div>
+                    <div>Адрес: {{this.$store.state.address}}</div>
+                    <div>Ссылка на сайт: {{this.$store.state.site}}</div>
+                </div>
             </div>
-        </div>
-        <hr>
-        <div class="row justify-content-between" style="margin: 0px;">
-            <div class="col-12 col-md-6 mt-1 mb-1">
-                <router-link to="/add-project" class='btn btn-blue btn-almbb-small'>Добавить новый проект</router-link>
+            <hr>
+            <div class="row justify-content-between" style="margin: 0px;">
+                <div class="col-12 col-md-6 mt-1 mb-1">
+                    <router-link to="/add-project" class='btn btn-blue btn-almbb-small'>Добавить новый проект</router-link>
+                </div>
+                <div class="col-12 col-md-6 mt-1 mb-1" style="padding: 0px 5px;">
+                    <router-link to="/profile" class='btn btn-blue btn-almbb-small'>Архив проектов</router-link>
+                </div>
             </div>
-            <div class="col-12 col-md-6 mt-1 mb-1" style="padding: 0px 5px;">
-                <router-link to="/profile" class='btn btn-blue btn-almbb-small'>Архив проектов</router-link>
-            </div>
-        </div>
-        <hr>
-        <h3>Текущие проекты</h3>
-        <div class="row justify-content-around" style="margin: 0px;">
-            <div class="col-12 col-md-4-6 col-lg-4 col-xl-3" v-for="item in projects" :key="item">
-                <div class="project">
-                    <div class="image">
-                        <img :src="item.image">
-                    </div>
-                    <div class="info">
-                        <p style="color: #999999;">
-                            <small><strong>{{item.city}}</strong></small>
-                        </p>
-                        <div style="text-align: justify;">
-                            <span style="font-size: 1.2em;">{{item.title}}</span> <br>
-                            <span style="font-size: 0.85em; font-weight: 600;">Вы можете помочь</span> <br>
-                            <span style="font-size: 0.85em;">{{item.help}}</span>
+            <hr>
+            <h3>Текущие проекты</h3>
+            <div class="row justify-content-around" style="margin: 0px;">
+                <div class="col-12 col-md-4-6 col-lg-4 col-xl-3" v-for="item in projects" :key="item">
+                    <div class="project">
+                        <div class="image">
+                            <img :src="item.image">
                         </div>
-                        <hr style="marging-bottom: 0px;">
-                        <div class="row" style="margin: 0px; line-height: 20px; vertical-align: baseline;">
-                            <div class="col-12" style="font-size: 0.8em;">
-                                <div style="text-align: justify;">
-                                    <strong>Цель {{item.money}}</strong>
+                        <div class="info">
+                            <p style="color: #999999;">
+                                <small><strong>{{item.city}}</strong></small>
+                            </p>
+                            <div style="text-align: justify;">
+                                <span style="font-size: 1.2em;">{{item.title}}</span> <br>
+                                <span style="font-size: 0.85em; font-weight: 600;">Вы можете помочь</span> <br>
+                                <span style="font-size: 0.85em;">{{item.help}}</span>
+                            </div>
+                            <hr style="marging-bottom: 0px;">
+                            <div class="row" style="margin: 0px; line-height: 20px; vertical-align: baseline;">
+                                <div class="col-12" style="font-size: 0.8em;">
+                                    <div style="text-align: justify;">
+                                        <strong>Цель {{item.money}}</strong>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div v-if="this.$store.state.role == 'business'">
+            <div class="row justify-content-center" style="margin: 0px;">
+                <div class="col-12 info">
+                    <div>Название компании: {{this.$store.state.name}}</div>
+                    <div>ФИО ответственного: {{this.$store.state.full_name_responsible_person}}</div>
+                    <div>Адрес электорнной почты: {{this.$store.state.email}}</div>
+                    <div>Номер телефона: {{this.$store.state.phone}}</div>
+                </div>
+            </div>
+            <hr>
+            <h3>Проекты, которым мы помогли</h3>
         </div>
     </main>
 </div>

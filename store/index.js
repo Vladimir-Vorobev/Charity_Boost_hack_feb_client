@@ -6,6 +6,7 @@ export const APP_STORE = {
 		phone: '',
 		site: '',
 		address: '',
+		full_name_responsible_person: '',
 		email: undefined,
 		role: '',
 		SessionID: '',

@@ -64,12 +64,19 @@ export default {
                 if(this.$store.state.email != undefined){
                     this.loginText = this.$store.state.email
                     this.role = this.$store.state.role
-                    this.$store.state.name = data.name
-                    this.$store.state.number = data.number
-                    this.$store.state.certificate = data.certificate
-                    this.$store.state.phone = data.phone
-                    this.$store.state.site = data.site
-                    this.$store.state.address = data.address
+                    if(this.role == 'fund'){
+                        this.$store.state.name = data.name
+                        this.$store.state.number = data.number
+                        this.$store.state.certificate = data.certificate
+                        this.$store.state.phone = data.phone
+                        this.$store.state.site = data.site
+                        this.$store.state.address = data.address
+                    }
+                    else if(this.role == 'business'){
+                        this.$store.state.name = data.name
+                        this.$store.state.full_name_responsible_person = data.full_name_responsible_person
+                        this.$store.state.phone = data.phone
+                    }
                     document.querySelector('.login').style.display = 'none'
                     document.querySelector('.person_menu').style.display = 'block'
                 }
