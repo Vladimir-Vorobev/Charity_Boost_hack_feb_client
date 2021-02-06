@@ -1,9 +1,15 @@
 export const APP_STORE = {
 	state: {
-		email: '',
+		name: '',
+		number: '',
+		certificate: '',
+		phone: '',
+		site: '',
+		address: '',
+		email: undefined,
 		role: '',
 		SessionID: '',
-		serverIp: 'https://vova-a29d07ed.localhost.run',
+		serverIp: 'http://127.0.0.1:5000',
 	},
 	mutations: {
 		GET_USER_EMAIL(state, value) {

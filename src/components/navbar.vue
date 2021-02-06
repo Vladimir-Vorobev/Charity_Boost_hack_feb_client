@@ -26,7 +26,7 @@
                         {{loginText}}
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <div class="dropdown-divider"></div>
+                        <router-link to='/profile' class="router-link login ml-auto">Профиль</router-link>
                         <button @click="exit()" class="dropdown-item exit personMenuDrop" style>Выйти</button>
                     </div>
                 </div>
@@ -46,15 +46,16 @@ export default {
         }
     },
     beforeMount(){
-        let email = this.$store.getters.email
-        let SessionID = this.$store.getters.SessionID
-        if(email != undefined){
+        if(this.$store.getters.email != undefined){
             fetch(this.$store.state.serverIp+'/get_information', {
                 method: 'POST',
-                body: JSON.stringify({email: email, sessionid: SessionID}),
+                body: JSON.stringify({email: this.$store.getters.email, session_id: this.$store.getters.SessionID}),
+            })
+            .then(response => {
+                return response.json()
             })
             .then(data => {
-                if(data.data == '310'){
+                if(data == '310'){
                     document.cookie = "email=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT"
                     document.cookie = "SessionID=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT"
                     document.cookie = "role=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT"
@@ -63,6 +64,12 @@ export default {
                 if(this.$store.state.email != undefined){
                     this.loginText = this.$store.state.email
                     this.role = this.$store.state.role
+                    this.$store.state.name = data.name
+                    this.$store.state.number = data.number
+                    this.$store.state.certificate = data.certificate
+                    this.$store.state.phone = data.phone
+                    this.$store.state.site = data.site
+                    this.$store.state.address = data.address
                     document.querySelector('.login').style.display = 'none'
                     document.querySelector('.person_menu').style.display = 'block'
                 }
@@ -114,7 +121,7 @@ export default {
     color: #16181b !important;
 }
 .exit{
-  background-color: red;
+    color: red;
 }
 
 .dropdown-item:active {
