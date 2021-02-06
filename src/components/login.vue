@@ -23,7 +23,7 @@
                         <button class="btn btn-rounded-blue btn-lg" @click="loginUser()">Войти</button>
                     </div>
                 </form> <br>
-                <p  style="text-align: left;">
+                <p style="text-align: left; font-size: 1em; padding-left: 10px;">
                     <router-link to="/registration" class="router-link">Нет аккаунта?</router-link>
                 </p>
             </div>
