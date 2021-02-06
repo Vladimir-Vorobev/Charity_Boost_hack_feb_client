@@ -16,7 +16,7 @@
                 </ul>
             </div>
             <div class="col-6 col-lg-2 order-2 order-lg-3 mb-2">
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select id="type_help" class="form-control" @input="change_type_help()">
                     <option selected>Все виды помощи</option>
                     <option>Деньгами</option>
                     <option>Услугами</option>
@@ -24,7 +24,7 @@
                 </select>
             </div>
             <div class="col-6 col-lg-2 order-3 order-lg-4">
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select class="form-control" id="city" @input="change_city()">
                     <option v-for="item in cities" :key="item">{{item}}</option>
                 </select>
             </div>
@@ -114,8 +114,54 @@ export default {
             var newelem = document.getElementsByName(category);
             oldelem[0].classList.remove("active");
             newelem[0].classList.add("active");
-            this.active = category;
-        }
+            this.active = this.category = category;
+            this.filter()
+        },
+        change_city(){
+            let city = document.getElementById('city').value
+            if(city != 'Все города') this.city = city
+            else this.city = ''
+            this.filter()
+        },
+        change_type_help(){
+            let type_help = document.getElementById('type_help').value
+            if(type_help != 'Все виды помощи') this.type_help = type_help
+            else this.type_help = ''
+            this.filter()
+        },
+        filter(){
+            let category = ''
+            let data = {}
+            if(this.category == 'children') category = 'Детям'
+            else if(this.category == 'adults') category = 'Взрослым'
+            else if(this.category == 'elderly') category = 'Пожилым'
+            else if(this.category == 'animals') category = 'Животным'
+            else if(this.category == 'nature') category = 'Природе'
+            if(category != '') data['category'] = category
+            if(this.city != '') data['city'] = this.city
+            if(this.type_help != '') data['type_help'] = this.type_help
+            fetch(this.$store.state.serverIp + '/get_projects/', {
+                method: 'POST',
+                body: JSON.stringify(data),
+            })
+            .then(response => {
+                return response.json()
+            })
+            .then((data) => {
+                if(data == '310'){
+                    document.cookie = "email=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT"
+                    document.cookie = "SessionID=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT"
+                    document.cookie = "role=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT"
+                    window.location.reload()
+                }
+                else{
+                    this.projects = data[0]
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        },
     },
 }
 </script>
