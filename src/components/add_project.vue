@@ -1,5 +1,29 @@
 <template>
     <div class="main">
+        <div class="container warp">
+            <form class="formbox mb-5">
+                <div class="form-group row">
+                    <label for="exampleInputEmail1">Изображение<span class="star">*</span></label>
+                    <input type="file" id="image" accept="image/*" @input="add_image()">
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail1">Город<span class="star">*</span></label>
+                    <input type="email" id="city" class="form-control formInput" @input="add_city()">
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail1">Заголовок<span class="star">*</span></label>
+                    <input type="email" id="title" class="form-control formInput" @input="add_title()">
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail1">Чем нужно помочь<span class="star">*</span></label>
+                    <input type="email" id="help" class="form-control formInput" @input="add_help()">
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail1">Номер телефона<span class="star">*</span></label>
+                    <input type="email" name="phone" class="form-control formInput">
+                </div>
+            </form>
+        </div>
         <div class="col-12 col-md-4-6 col-lg-4 col-xl-3 block">
             <strong>Как выглядит карточка проекта</strong>
             <div class="project">
@@ -9,12 +33,12 @@
                 </div>
                 <div class="info">
                     <p style="color: #999999;">
-                        <small><strong>Город</strong></small>
+                        <small><strong>{{city}}</strong></small>
                     </p>
                     <div style="text-align: justify;">
-                        <span style="font-size: 1.2em;">Заголовок</span> <br>
+                        <span style="font-size: 1.2em;">{{title}}</span> <br>
                         <span style="font-size: 0.85em; font-weight: 600;">Вы можете помочь</span> <br>
-                        <span style="font-size: 0.85em;">Текст чем помочь</span>
+                        <span style="font-size: 0.85em;">{{help}}</span>
                     </div>
                     <hr style="marging-bottom: 0px;">
                     <div class="row" style="margin: 0px; line-height: 20px; vertical-align: baseline;">
@@ -42,13 +66,49 @@
 
 
 <script>
+import Swal from 'sweetalert2'
 export default {
     name: 'add_project',
     data(){
         return{
             image: '',
+            city: '',
+            title: '',
+            help: '',
         }
     },
+    beforeMount(){
+        if(this.$store.getters.email == undefined) document.location.href = '/login'
+    },
+    methods:{
+        add_image(){
+            let image = document.getElementById('image').files[0]
+            let reader = new FileReader();
+            reader.readAsDataURL(image);
+            reader.onload = (() =>{
+                this.image = reader.result
+            })
+            reader.onerror = function (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Ошибка',
+                    showConfirmButton: false,
+                    text: 'Неожиданная ошибка. Пожалуйста, попробуйт еще',
+                    timer: 2000,
+                })
+                console.log('Error: ', error);
+            };
+        },
+        add_city(){
+            this.city = document.getElementById('city').value
+        },
+        add_title(){
+            this.title = document.getElementById('title').value
+        },
+        add_help(){
+            this.help = document.getElementById('help').value
+        },
+    }
 }
 </script>
 
@@ -91,5 +151,18 @@ footer {
 .block{
     margin-left: auto;
     margin-right: auto;
+}
+.formbox {
+    padding: 30px;
+    border-radius: 30px;
+    background-color: rgba(236, 236, 236, 0.829);
+}
+.warp{
+    flex: 1 0 auto;
+    background-color: #fff;
+    padding: 0px 30px;
+}
+.star{
+    color: red;
 }
 </style>

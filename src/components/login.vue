@@ -5,14 +5,14 @@
                 <form class="needs-validation" novalidate>
                     <h2>Войти</h2>
                     <div class="form-group" style="text-align: left">
-                        <label for="exampleInputEmail1">Логин</label>
-                        <input name="text" id="email" class="form-control formInput" placeholder='Логин' required>
+                        <label for="exampleInputEmail1">Почта</label>
+                        <input name="text" id="email" class="form-control formInput">
                     </div>
                     <div style="text-align: left">
                         <label for="password">Пароль</label>
                     </div>
                     <div class="form-label-group input-group">
-                        <input type="password" id="password" class="form-control formInput" name="password" placeholder="Пароль" required>
+                        <input type="password" id="password" class="form-control formInput" name="password">
                         <div class="input-group-append" @click="showHidePwd()" style="cursor: pointer;">
                             <span class="input-group-text showHidePwd">
                                 <i id="eye" class="far fa-eye-slash"></i>
@@ -39,7 +39,7 @@ export default {
     name: 'login',
     components: { Footer },
     beforeMount(){
-        if(this.store.getters.email != undefined) document.location.href = '/profile'
+        if(this.store.state.email != undefined) document.location.href = '/profile'
     },
     methods: {
         loginUser(){
@@ -71,7 +71,7 @@ export default {
                     document.cookie = "email=" + email + "; expires=" + new Date(Date.now() + 864000e3).toUTCString()
                     document.cookie = "SessionID=" + data.session_id + "; expires=" + new Date(Date.now() + 864000e3).toUTCString()
                     document.cookie = "role=" + data.role + "; expires=" + new Date(Date.now() + 864000e3).toUTCString()
-                    window.location.href = '/'
+                    window.location.href = '/profile'
                 }
             })
             .catch(err => {

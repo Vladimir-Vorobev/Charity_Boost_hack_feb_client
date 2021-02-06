@@ -253,10 +253,10 @@ export default {
                     text: 'Введите код подтверждения с Вашей почты'
                 });
             }
-            else{
+            else if(this.type_reg == 0){
                 fetch(this.$store.state.serverIp + '/registration/', {
                     method: 'POST',
-                    body: JSON.stringify({name: this.name, number: this.number, certificate: this.certificate, phone: this.phone, address: this.address, site: this.site, email: this.email, password: this.password, code: code}),
+                    body: JSON.stringify({name: this.name, number: this.number, certificate: this.certificate, phone: this.phone, address: this.address, site: this.site, email: this.email, password: this.password, role: 'fund', code: code}),
                 })
                 .then(response => {
                     return response.json()
