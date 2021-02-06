@@ -76,8 +76,7 @@ export default {
     },
     beforeMount(){
         fetch(this.$store.state.serverIp + '/get_projects/', {
-            method: 'POST',
-            body: JSON.stringify({email: this.$store.getters.email, session_id: this.$store.getters.SessionID}),
+            method: 'GET',
         })
         .then(response => {
             return response.json()
