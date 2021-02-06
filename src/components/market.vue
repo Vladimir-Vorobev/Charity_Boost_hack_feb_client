@@ -1,7 +1,7 @@
 <template>
 <div>
     <main>
-        <div class="row justify-content-around"  style="margin: 0px;">
+        <div class="row justify-content-around mb-3"  style="margin: 0px;">
             <div class="col-4 col-lg-2">
                 <h3 style="margin: 0px; padding: 6px 0px;">Помочь:</h3>
             </div>
@@ -20,7 +20,7 @@
             <div class="col-12 col-md-4-6 col-lg-4 col-xl-3">
                 <div class="project">
                     <div class="image">
-
+                        <img src="https://s1.1zoom.me/big3/122/426205-Kycb.jpg" alt="">
                     </div>
                     <div class="info">
                         <p style="color: #999999;">
@@ -32,16 +32,14 @@
                             <span style="font-size: 0.85em;">Текст чем помочь</span>
                         </div>
                         <hr style="marging-bottom: 0px;">
-                        <div class="row" style="margin: 0px; line-height: 16px; vertical-align: baseline;">
+                        <div class="row" style="margin: 0px; line-height: 20px; vertical-align: baseline;">
                             <div class="col-12" style="font-size: 0.8em;">
                                 <div style="text-align: justify;">
-                                    <strong>90 000Р </strong>
-                                    <span style="color: #999999;">собранно цель 100 000Р</span>
+                                    <strong>Цель 100 000Р</strong>
                                 </div>
-                                <progress style="width: 100%;" max="100" value="50"></progress>
                             </div>
                         </div>
-                        <button class="btn btn-indigo" style="width: 100%;">Я хочу помочь</button>
+                        <button class="btn btn-indigo" style="width: 90%; position: absolute; left:5%; bottom: 10px;">Я хочу помочь</button>
                     </div>
                 </div>
             </div>
@@ -113,9 +111,19 @@ footer {
     border-top-right-radius: 4px;
     height: 200px;
     background-color: #212121;
+    position: relative;
+}
+.project .image img{
+    width: 100%;
+    height: 200px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    object-fit: cover;
 }
 .project .info {
     text-align: left;
     padding: 4px 7px 0px;
+    height: 247px;
+    position: relative;
 }
 </style>
