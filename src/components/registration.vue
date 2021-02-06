@@ -1,8 +1,15 @@
 <template>
     <div class="main">
         <div class="container warp">
-            <div v-if="type_reg == -1">
-
+            <div class="formbox mb-5" style="margin-top: 200px; min-height: 107px;" v-if="type_reg == -1">
+                <div class="row" style="margin: 0px;">
+                    <div class="col-12 col-md-6" style="padding: 3px;">
+                        <button class="btn btn-indigo" style="width: 100%;" @click="type_reg = 0">Регистрации для НКО</button>
+                    </div>
+                    <div class="col-12 col-md-6" style="padding: 3px;">
+                        <button class="btn btn-indigo" style="width: 100%;" @click="type_reg = 1">Регистрации для бизнеса</button>
+                    </div>
+                </div>
             </div>
             <div class="formbox mb-5" v-else-if="type_reg == 0">
                 <form>
@@ -61,7 +68,7 @@
                 </form> <br>
             </div>
             <div class="formbox mb-5" v-else-if="type_reg == 1">
-                
+
             </div>
         </div>
         <div class="footer"><Footer></Footer></div> 
