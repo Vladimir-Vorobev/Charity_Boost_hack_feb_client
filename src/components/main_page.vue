@@ -22,10 +22,14 @@
                 </div>
             </div>
         </div>
-        <div class="news container-md mt-md-5 mt-3">
+        <div class="newsblock container-md mt-md-5 mt-3">
             <div class="blockname mb-2">Новости</div>
             <div class="row" style="margin: 0px;">
-                div.col-12.col-md-6 col-lg-4 col-xl-3
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div class="news">
+
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -54,7 +58,7 @@ footer {
     background: url('./../assets/Blagotvoritelnost-pomoshh.jpg') no-repeat center center;
     border-bottom: #eeeeee solid 2px;
 }
-.news {
+.newsblock {
     text-align: left;
 }
 .blockname {
@@ -65,5 +69,12 @@ footer {
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
+}
+.news {
+    height: 200px;
+    width: 100%;
+    border: #e0e0e0 solid 2px;
+    border-radius: 5px;
+    padding: 0px;
 }
 </style>
