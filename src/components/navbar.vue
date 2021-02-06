@@ -26,7 +26,7 @@
                         {{loginText}}
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <router-link to='/profile' class="router-link login ml-auto">Профиль</router-link>
+                        <router-link to='/profile' style="color: black;" class="router-link login ml-auto">Профиль</router-link>
                         <button @click="exit()" class="dropdown-item exit personMenuDrop" style>Выйти</button>
                     </div>
                 </div>
