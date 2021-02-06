@@ -11,13 +11,13 @@
         </div>
         <div class="row justify-content-center" style="margin: 0px;">
             <div class="col-12 info">
-                <div>Название фонда: </div>
-                <div>Регистрационный номер: </div>
-                <div>Свидетельство о регистрации: </div>
-                <div>Адрес электорнной почты: </div>
-                <div> Номер телефона: </div>
-                <div>Адрес: </div>
-                <div>Ссылка на сайт: </div>
+                <div>Название фонда: {{name}}</div>
+                <div>Регистрационный номер: {{number}}</div>
+                <div>Свидетельство о регистрации: {{certificate}}</div>
+                <div>Адрес электорнной почты: {{email}}</div>
+                <div>Номер телефона: {{phone}}</div>
+                <div>Адрес: {{address}}</div>
+                <div>Ссылка на сайт: {{site}}</div>
             </div>
         </div>
         <hr>
@@ -43,6 +43,24 @@
 <script>
 export default {
     name: 'profile',
+    data(){
+        return{
+            name: this.$store.state.name,
+            number: this.$store.state.number,
+            certificate: this.$store.state.certificate,
+            phone: this.$store.state.phone,
+            address: this.$store.state.address,
+            site: this.$store.state.site,
+            email: this.$store.state.email,
+            session_id: this.$store.state.SessionID,
+        }
+    },
+    beforeMount(){
+        if(this.email == undefined) document.location.href = '/login'
+    },
+    methods:{
+
+    }
 }
 </script>
 
