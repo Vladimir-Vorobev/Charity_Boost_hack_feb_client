@@ -39,7 +39,16 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-indigo" style="width: 90%; position: absolute; left:5%; bottom: 10px;">Я хочу помочь</button>
+                        <div style="width: 95%; position: absolute; bottom: 10px;">
+                            <div class="row justify-content-center" style="margin: 0px; width: 100%;">
+                            <div class="col-12 col-md-6" style="padding: 3px;">
+                                <button class="btn btn-indigo btn-almbb-small" style="width: 100%;">Помочь</button>
+                            </div>
+                            <div class="col-12 col-md-6" style="padding: 3px;">
+                                <button class="btn btn-indigo btn-almbb-small" style="width: 100%;">Связаться</button>
+                            </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
