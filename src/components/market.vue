@@ -3,7 +3,7 @@
     <main>
         <div class="row justify-content-around mb-3"  style="margin: 0px;">
             <div class="col-5 col-lg-2 order-1">
-                <h3 style="margin: 0px; padding: 6px 0px;">Помочь:</h3>
+                <h3 style="margin: 0px; padding: 6px 0px;">Помочь</h3>
             </div>
             <div class="col-12 col-lg-8 categories order-3 order-lg-2">
                 <ul>
@@ -24,25 +24,25 @@
             </div>
         </div>
         <div class="row justify-content-around" style="margin: 0px;">
-            <div class="col-12 col-md-4-6 col-lg-4 col-xl-3">
+            <div class="col-12 col-md-4-6 col-lg-4 col-xl-3" v-for="item in projects" :key="item">
                 <div class="project">
                     <div class="image">
-                        <img src="https://s1.1zoom.me/big3/122/426205-Kycb.jpg" alt="">
+                        <img :src="item.image">
                     </div>
                     <div class="info">
                         <p style="color: #999999;">
-                            <small><strong>Город</strong></small>
+                            <small><strong>{{item.city}}</strong></small>
                         </p>
                         <div style="text-align: justify;">
-                            <span style="font-size: 1.2em;">Заголовок</span> <br>
+                            <span style="font-size: 1.2em;">{{item.title}}</span> <br>
                             <span style="font-size: 0.85em; font-weight: 600;">Вы можете помочь</span> <br>
-                            <span style="font-size: 0.85em;">Текст чем помочь</span>
+                            <span style="font-size: 0.85em;">{{item.help}}</span>
                         </div>
                         <hr style="marging-bottom: 0px;">
                         <div class="row" style="margin: 0px; line-height: 20px; vertical-align: baseline;">
                             <div class="col-12" style="font-size: 0.8em;">
                                 <div style="text-align: justify;">
-                                    <strong>Цель 100 000Р</strong>
+                                    <strong>Цель {{item.money}}</strong>
                                 </div>
                             </div>
                         </div>
@@ -69,6 +69,34 @@
 <script>
 export default {
     name: 'market',
+    data(){
+        return{
+            projects: [],
+        }
+    },
+    beforeMount(){
+        fetch(this.$store.state.serverIp + '/get_projects/', {
+            method: 'POST',
+            body: JSON.stringify({email: this.$store.getters.email, session_id: this.$store.getters.SessionID}),
+        })
+        .then(response => {
+            return response.json()
+        })
+        .then((data) => {
+            if(data == '310'){
+                document.cookie = "email=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT"
+                document.cookie = "SessionID=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT"
+                document.cookie = "role=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT"
+                window.location.reload()
+            }
+            else{
+                this.projects = data
+            }
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    },
 }
 </script>
 

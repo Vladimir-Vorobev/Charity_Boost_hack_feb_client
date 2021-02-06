@@ -9,19 +9,22 @@
                 </div>
                 <div class="form-group row">
                     <label for="exampleInputEmail1">Город<span class="star">*</span></label>
-                    <input type="email" id="city" class="form-control formInput" @input="add_city()">
+                    <input id="city" class="form-control formInput" @input="add_city()">
                 </div>
                 <div class="form-group row">
                     <label for="exampleInputEmail1">Заголовок<span class="star">*</span></label>
-                    <input type="email" id="title" class="form-control formInput" @input="add_title()">
+                    <input id="title" class="form-control formInput" @input="add_title()">
                 </div>
                 <div class="form-group row">
                     <label for="exampleInputEmail1">Чем нужно помочь<span class="star">*</span></label>
-                    <input type="email" id="help" class="form-control formInput" @input="add_help()">
+                    <input id="help" class="form-control formInput" @input="add_help()">
                 </div>
                 <div class="form-group row">
                     <label for="exampleInputEmail1">Цена<span class="star">*</span></label>
-                    <input type="email" id="money" class="form-control formInput" @input="add_money()">
+                    <input id="money" class="form-control formInput" @input="add_money()">
+                </div>
+                <div class="row"> 
+                    <button class="btn btn-rounded-blue btn-lg" @click="add_project()">Добавить</button>
                 </div>
             </form>
         </div>
@@ -80,7 +83,7 @@ export default {
         }
     },
     beforeMount(){
-        if(this.$store.getters.email == undefined) document.location.href = '/login'
+        if(this.$store.getters.email == undefined || this.$store.state.role != 'fund') document.location.href = '/login'
     },
     methods:{
         add_image(){
@@ -95,7 +98,7 @@ export default {
                     icon: 'error',
                     title: 'Ошибка',
                     showConfirmButton: false,
-                    text: 'Неожиданная ошибка. Пожалуйста, попробуйт еще',
+                    text: 'Неожиданная ошибка. Пожалуйста, попробуйте еще раз',
                     timer: 2000,
                 })
                 console.log('Error: ', error);
@@ -112,6 +115,73 @@ export default {
         },
         add_money(){
             this.money = document.getElementById('money').value
+        },
+        add_project(){
+            event.preventDefault()
+            if(this.image.trim() == ''){
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Загрузите картинку'
+                });
+            }
+            else if(this.city.trim() == ''){
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Введите город'
+                });
+            }
+            else if(this.title.trim() == ''){
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Введите заголовок'
+                });
+            }
+            else if(this.help.trim() == ''){
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Введите, чем нужно помочь'
+                });
+            }
+            else if(this.money.trim() == ''){
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Введите цену'
+                });
+            }
+            else{
+                fetch(this.$store.state.serverIp + '/add_project/', {
+                    method: 'POST',
+                    body: JSON.stringify({email: this.$store.getters.email, session_id: this.$store.getters.SessionID, image: this.image, city: this.city, title: this.title, help: this.help, money: this.money}),
+                })
+                .then(response => {
+                    return response.json()
+                })
+                .then((data) => {
+                    if(data == '310'){
+                        document.cookie = "email=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT"
+                        document.cookie = "SessionID=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT"
+                        document.cookie = "role=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT"
+                        window.location.reload()
+                    }
+                    else if(data == 'OK'){
+                        Swal.fire({
+                            icon: 'success',
+                            text: 'Проект успешно добавлен',
+                            timer: 1500,
+                        });
+                        setTimeout(() => {
+                            window.location.href = '/profile'
+                        }, 1500)
+                    }
+                })
+                .catch(err => {
+                    Swal.fire({
+                        icon: 'error',
+                        text: 'Непредвиденная ошибка, повторите попытку позже'
+                    });
+                    console.log(err)
+                })
+            }
         },
     }
 }
