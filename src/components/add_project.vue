@@ -1,6 +1,7 @@
 <template>
     <div class="main">
         <div class="container warp">
+            <h2>Добавить проект</h2>
             <form class="formbox mb-5">
                 <div class="form-group row">
                     <label for="exampleInputEmail1">Изображение<span class="star">*</span></label>
