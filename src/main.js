@@ -10,6 +10,7 @@ import registration from './components/registration.vue'
 import add_project from './components/add_project.vue'
 import market from './components/market.vue'
 import profile from './components/profile.vue'
+import connect_with_admin from './components/connect_with_admin.vue'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
@@ -22,6 +23,7 @@ const routes = [
   { path: '/add-project', component: add_project },
   { path: '/market', component: market },
   { path: '/profile', component: profile },
+  { path: '/connect_with_admin', component: connect_with_admin },
 ]
 
 const router = new VueRouter({

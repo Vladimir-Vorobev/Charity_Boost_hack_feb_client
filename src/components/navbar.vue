@@ -23,7 +23,7 @@
                         </router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link to="#" class="router-link">
+                        <router-link to="/connect_with_admin" class="router-link">
                             <a class="nav-link">Связаться с администрацией</a>
                         </router-link>
                     </li>
