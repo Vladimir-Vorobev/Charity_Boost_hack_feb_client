@@ -34,6 +34,11 @@
                 </div>
             </div>
         </div>
+        <div class="contactblock container-md mt-md-3 mt-2">
+            <div class="blockname mb-3" style="margin-left: 15px;">Контакты</div>
+            <p>Email: example@example.com</p>
+            <p>Телефон: +7 777 777-7777</p>
+        </div>
     </main>
 </div>
 
@@ -65,8 +70,12 @@ footer {
     background: url('./../assets/Blagotvoritelnost-pomoshh.jpg') no-repeat center center;
     border-bottom: #eeeeee solid 2px;
 }
-.newsblock {
+.newsblock, .contactblock {
     text-align: left;
+}
+.contactblock p {
+    padding-left: 15px;
+    font-size: 1.1em;
 }
 .blockname {
     font-size: 1.3em;
