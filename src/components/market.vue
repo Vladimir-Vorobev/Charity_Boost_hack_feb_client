@@ -55,10 +55,10 @@
                                 </div>
                             </div>
                             <div class="row justify-content-center" style="margin: 0px; width: 100%;">
-                            <div class="col-12" style="padding: 3px;">
-                                <button class="btn btn-indigo btn-almbb-small" style="width: 100%; font-size: 1.1em; text-transform: none;">Связаться с Фондом</button>
+                                <div class="col-12" style="padding: 3px;">
+                                    <button class="btn btn-indigo btn-almbb-small" style="width: 100%; font-size: 1.1em; text-transform: none;">Связаться с Фондом</button>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>

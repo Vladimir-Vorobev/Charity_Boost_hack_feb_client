@@ -17,6 +17,16 @@
                             <a class="nav-link">Помочь</a>
                         </router-link>
                     </li>
+                    <li class="nav-item">
+                        <router-link to="#" class="router-link">
+                            <a class="nav-link">Успешные проекты</a>
+                        </router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="#" class="router-link">
+                            <a class="nav-link">Связаться с администрацией</a>
+                        </router-link>
+                    </li>
                 </ul>
                 <router-link to='/login' class="router-link login ml-auto" style="display:block;">
                     <a type="button" class="btn btn-rounded-blue btn-lg">{{loginText}}</a>
