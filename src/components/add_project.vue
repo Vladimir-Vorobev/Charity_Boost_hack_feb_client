@@ -55,10 +55,10 @@
                         </div>
                         <div class="row justify-content-center" style="margin: 0px; width: 100%;">
                         <div class="col-12 col-md-6" style="padding: 3px;">
-                            <button class="btn btn-indigo btn-almbb-small" style="width: 100%;">Помочь</button>
+                            <button class="btn btn-indigo btn-almbb-small" style="width: 100%; font-size: 0.8em; text-transform: none;">Связаться с НКО</button>
                         </div>
                         <div class="col-12 col-md-6" style="padding: 3px;">
-                            <button class="btn btn-indigo btn-almbb-small" style="width: 100%;">Связаться</button>
+                            <button class="btn btn-indigo btn-almbb-small" style="width: 100%; font-size: 0.8em; text-transform: none;">Помощь администрации</button>
                         </div>
                     </div>
                     </div>

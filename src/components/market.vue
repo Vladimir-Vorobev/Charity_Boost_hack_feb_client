@@ -5,7 +5,7 @@
             <div class="col-5 col-lg-2 order-1">
                 <h3 style="margin: 0px; padding: 6px 0px;">Помочь</h3>
             </div>
-            <div class="col-12 col-lg-8 categories order-3 order-lg-2">
+            <div class="col-12 col-lg-6 categories order-3 order-lg-2">
                 <ul>
                     <li class="active">Все</li>
                     <li>Детям</li>
@@ -16,6 +16,13 @@
                 </ul>
             </div>
             <div class="col-7 col-lg-2 order-2 order-lg-3">
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option selected>Все виды</option>
+                    <option>Деньгами</option>
+                    <option>Услугами</option>
+                </select>
+            </div>
+            <div class="col-7 col-lg-2 order-2 order-lg-4">
                 <select class="form-control" id="exampleFormControlSelect1">
                     <option selected>Все города</option>
                     <option>Москва</option>
@@ -49,10 +56,10 @@
                             </div>
                             <div class="row justify-content-center" style="margin: 0px; width: 100%;">
                             <div class="col-12 col-md-6" style="padding: 3px;">
-                                <button class="btn btn-indigo btn-almbb-small" style="width: 100%;">Помочь</button>
+                                <button class="btn btn-indigo btn-almbb-small" style="width: 100%; font-size: 0.8em; text-transform: none;">Связаться с Фондом</button>
                             </div>
                             <div class="col-12 col-md-6" style="padding: 3px;">
-                                <button class="btn btn-indigo btn-almbb-small" style="width: 100%;">Связаться</button>
+                                <button class="btn btn-indigo btn-almbb-small" style="width: 100%; font-size: 0.8em; text-transform: none;">Помощь администрации</button>
                             </div>
                         </div>
                         </div>
