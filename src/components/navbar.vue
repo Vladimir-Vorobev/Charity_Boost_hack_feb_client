@@ -27,7 +27,8 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <router-link to='/profile' class="dropdown-item router-link login ml-auto">Профиль</router-link>
-                        <button @click="exit()" class="dropdown-item exit personMenuDrop" style>Выйти</button>
+                        <div class="dropdown-divider"></div>
+                        <button @click="exit()" class="dropdown-item exit personMenuDrop">Выйти</button>
                     </div>
                 </div>
             </div>
@@ -121,7 +122,7 @@ export default {
     color: #16181b !important;
 }
 .exit{
-    color: red;
+    color: red !important;
 }
 
 .dropdown-item:active {
