@@ -32,7 +32,7 @@
         <hr>
         <h3>Текущие проекты</h3>
         <div class="row justify-content-around" style="margin: 0px;">
-            <div class="col-12 col-md-4-6 col-lg-4 col-xl-3" v-for="item in projects" :key="item">
+            <div class="col-12 col-md-4-6 col-lg-4 col-xl-3" v-for="item in projects" :key="item.id">
                 <div class="project">
                     <div class="image">
                         <img :src="item.image">
