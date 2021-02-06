@@ -25,7 +25,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-12 col-md-4-6 col-lg-4 col-xl-3 block mb-2">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3 block mb-2">
             <strong>Как выглядит карточка проекта</strong>
             <div class="project">
                 <div class="image">

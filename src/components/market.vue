@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="row justify-content-around" style="margin: 0px;">
-            <div class="col-12 col-md-4-6 col-lg-4 col-xl-3">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                 <div class="project">
                     <div class="image">
                         <img src="https://s1.1zoom.me/big3/122/426205-Kycb.jpg" alt="">
