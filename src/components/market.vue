@@ -38,15 +38,15 @@
                             <span style="font-size: 0.85em; font-weight: 600;">Вы можете помочь</span> <br>
                             <span style="font-size: 0.85em;">{{item.help}}</span>
                         </div>
-                        <hr style="marging-bottom: 0px;">
-                        <div class="row" style="margin: 0px; line-height: 20px; vertical-align: baseline;">
-                            <div class="col-12" style="font-size: 0.8em;">
-                                <div style="text-align: justify;">
-                                    <strong>Цель {{item.money}}</strong>
+                        <div style="width: 95%; position: absolute; bottom: 10px;">
+                            <hr style="margin: 3px;">
+                            <div class="row" style="margin: 0px; line-height: 22px; vertical-align: baseline;">
+                                <div class="col-12" style="font-size: 0.8em;">
+                                    <div style="text-align: justify;">
+                                        <strong>Цель {{item.money}}</strong>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div style="width: 95%; position: absolute; bottom: 10px;">
                             <div class="row justify-content-center" style="margin: 0px; width: 100%;">
                             <div class="col-12 col-md-6" style="padding: 3px;">
                                 <button class="btn btn-indigo btn-almbb-small" style="width: 100%;">Помочь</button>
