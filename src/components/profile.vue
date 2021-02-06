@@ -30,13 +30,23 @@
                     <router-link to="/profile" class='btn btn-blue btn-almbb-small'>Архив проектов</router-link>
                 </div>
             </div>
-            <hr>
-            <h3>Текущие проекты</h3>
-            <div class="row justify-content-around" style="margin: 0px;">
-                <div class="col-12 col-md-4-6 col-lg-4 col-xl-3" v-for="item in projects" :key="item">
-                    <div class="project">
-                        <div class="image">
-                            <img :src="item.image">
+        </div>
+        <hr>
+        <h3>Текущие проекты</h3>
+        <div class="row justify-content-left" style="margin: 0px;">
+            <div class="col-12 col-md-4-6 col-lg-4 col-xl-3" v-for="item in projects" :key="item.id">
+                <div class="project">
+                    <div class="image">
+                        <img :src="item.image">
+                    </div>
+                    <div class="info">
+                        <p style="color: #999999;">
+                            <small><strong>{{item.city}}</strong></small>
+                        </p>
+                        <div style="text-align: justify;">
+                            <span style="font-size: 1.2em;">{{item.title}}</span> <br>
+                            <span style="font-size: 0.85em; font-weight: 600;">Вы можете помочь</span> <br>
+                            <span style="font-size: 0.85em;">{{item.help}}</span>
                         </div>
                         <div class="info">
                             <p style="color: #999999;">
