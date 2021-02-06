@@ -17,9 +17,10 @@
             </div>
             <div class="col-6 col-lg-2 order-2 order-lg-3 mb-2">
                 <select class="form-control" id="exampleFormControlSelect1">
-                    <option selected>Все виды</option>
+                    <option selected>Все виды помощи</option>
                     <option>Деньгами</option>
                     <option>Услугами</option>
+                    <option>Товарами</option>
                 </select>
             </div>
             <div class="col-6 col-lg-2 order-3 order-lg-4">
