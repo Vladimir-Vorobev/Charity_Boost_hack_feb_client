@@ -58,7 +58,7 @@ export default {
     },
     beforeMount(){
         if(this.$store.getters.email != undefined){
-            fetch(this.$store.state.serverIp+'/get_information', {
+            fetch(this.$store.state.serverIp+'/get_information/', {
                 method: 'POST',
                 body: JSON.stringify({email: this.$store.getters.email, session_id: this.$store.getters.SessionID}),
             })

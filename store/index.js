@@ -10,7 +10,7 @@ export const APP_STORE = {
 		email: undefined,
 		role: '',
 		SessionID: '',
-		serverIp: 'https://vova-489375f3.localhost.run',
+		serverIp: 'https://charityserver.tk',
 	},
 	mutations: {
 		GET_USER_EMAIL(state, value) {
