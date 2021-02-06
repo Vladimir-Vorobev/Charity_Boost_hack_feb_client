@@ -11,13 +11,13 @@
         </div>
         <div class="row justify-content-center" style="margin: 0px;">
             <div class="col-12 info">
-                <div>Название фонда: {{name}}</div>
-                <div>Регистрационный номер: {{number}}</div>
-                <div>Свидетельство о регистрации: {{certificate}}</div>
-                <div>Адрес электорнной почты: {{email}}</div>
-                <div>Номер телефона: {{phone}}</div>
-                <div>Адрес: {{address}}</div>
-                <div>Ссылка на сайт: {{site}}</div>
+                <div>Название фонда: {{this.$store.state.name}}</div>
+                <div>Регистрационный номер: {{this.$store.state.number}}</div>
+                <div>Свидетельство о регистрации: {{this.$store.state.certificate}}</div>
+                <div>Адрес электорнной почты: {{this.$store.state.email}}</div>
+                <div>Номер телефона: {{this.$store.state.phone}}</div>
+                <div>Адрес: {{this.$store.state.address}}</div>
+                <div>Ссылка на сайт: {{this.$store.state.site}}</div>
             </div>
         </div>
         <hr>
