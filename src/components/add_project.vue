@@ -16,6 +16,24 @@
                     <input id="title" class="form-control formInput" @input="add_title()">
                 </div>
                 <div class="form-group row">
+                    <label for="exampleInputEmail1">Категория помощи<span class="star">*</span></label>
+                    <select v-model="category" class="form-control" id="exampleFormControlSelect1">
+                        <option>Детям</option>
+                        <option>Взрослым</option>
+                        <option>Пожилым</option>
+                        <option>Животным</option>
+                        <option>Природе</option>
+                    </select>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleInputEmail1">Тип помощи<span class="star">*</span></label>
+                    <select v-model="type_help" class="form-control" id="exampleFormControlSelect1">
+                        <option>Деньгами</option>
+                        <option>Услугами</option>
+                        <option>Товарами</option>
+                    </select>
+                </div>
+                <div class="form-group row">
                     <label for="exampleInputEmail1">Чем нужно помочь<span class="star">*</span></label>
                     <input id="help" class="form-control formInput" @input="add_help()">
                 </div>
@@ -36,13 +54,15 @@
                     <img v-else src="./../assets/no_image.png">
                 </div>
                 <div class="info">
-                    <p style="color: #999999;">
+                    <p style="color: #999999; margin-bottom: 5px;">
                         <small><strong>{{city}}</strong></small>
                     </p>
-                    <div style="text-align: justify;">
-                        <span style="font-size: 1.2em;">{{title}}</span> <br>
-                        <span style="font-size: 0.85em; font-weight: 600;">Вы можете помочь</span> <br>
-                        <span style="font-size: 0.85em;">{{help}}</span>
+                    <div style="text-align: left;">
+                        <span style="font-size: 1em;">{{title}}</span> <br>
+                        <span style="font-size: 0.7em;">Категория: {{category}} | </span>
+                        <span style="font-size: 0.7em;">Тип помощи: {{type_help}}</span> <br>
+                        <span style="font-size: 0.8em; font-weight: 600;">Вы можете помочь</span> <br>
+                        <span style="font-size: 0.8em;">{{help}}</span>
                     </div>
                     <div style="width: 95%; position: absolute; bottom: 10px;">
                         <hr style="margin: 3px;">
@@ -77,6 +97,8 @@ export default {
             title: '',
             help: '',
             money: '',
+            category: '',
+            type_help: '',
         }
     },
     beforeMount(){
@@ -133,6 +155,18 @@ export default {
                     text: 'Введите заголовок'
                 });
             }
+            else if(this.category.trim() == ''){
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Выберите категорию помощи'
+                });
+            }
+            else if(this.type_help.trim() == ''){
+                Swal.fire({
+                    icon: 'warning',
+                    text: 'Выберите тип помощи'
+                });
+            }
             else if(this.help.trim() == ''){
                 Swal.fire({
                     icon: 'warning',
@@ -148,7 +182,7 @@ export default {
             else{
                 fetch(this.$store.state.serverIp + '/add_project/', {
                     method: 'POST',
-                    body: JSON.stringify({email: this.$store.getters.email, session_id: this.$store.getters.SessionID, image: this.image, city: this.city, title: this.title, help: this.help, money: this.money}),
+                    body: JSON.stringify({email: this.$store.getters.email, session_id: this.$store.getters.SessionID, image: this.image, city: this.city, title: this.title, help: this.help, money: this.money, category: this.category, type_help: this.type_help}),
                 })
                 .then(response => {
                     return response.json()
