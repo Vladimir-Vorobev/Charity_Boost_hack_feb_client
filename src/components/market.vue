@@ -15,7 +15,7 @@
                     <li>Природе</li>
                 </ul>
             </div>
-            <div class="col-6 col-lg-2 order-2 order-lg-3">
+            <div class="col-6 col-lg-2 order-2 order-lg-3 mb-2">
                 <select class="form-control" id="exampleFormControlSelect1">
                     <option selected>Все виды</option>
                     <option>Деньгами</option>
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="row justify-content-around" style="margin: 0px;">
-            <div class="col-12 col-md-4-6 col-lg-4 col-xl-3" v-for="item in projects" :key="item.id">
+            <div class="col-12 col-md-4-6 col-lg-4 col-xl-3 mb-2" v-for="item in projects" :key="item.id">
                 <div class="project">
                     <div class="image">
                         <img :src="item.image">
@@ -55,11 +55,8 @@
                                 </div>
                             </div>
                             <div class="row justify-content-center" style="margin: 0px; width: 100%;">
-                            <div class="col-12 col-md-6" style="padding: 3px;">
-                                <button class="btn btn-indigo btn-almbb-small" style="width: 100%; font-size: 0.8em; text-transform: none;">Связаться с Фондом</button>
-                            </div>
-                            <div class="col-12 col-md-6" style="padding: 3px;">
-                                <button class="btn btn-indigo btn-almbb-small" style="width: 100%; font-size: 0.8em; text-transform: none;">Помощь администрации</button>
+                            <div class="col-12" style="padding: 3px;">
+                                <button class="btn btn-indigo btn-almbb-small" style="width: 100%; font-size: 1.1em; text-transform: none;">Связаться с Фондом</button>
                             </div>
                         </div>
                         </div>
