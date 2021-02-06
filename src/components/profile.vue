@@ -53,7 +53,13 @@ export default {
         if(this.email == undefined) document.location.href = '/login'
     },
     methods:{
-
+        exit(){
+            document.cookie = "email=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT"
+            document.cookie = "SessionID=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT"
+            document.cookie = "role=" + ";expires=Thu, 01 Jan 1970 00:00:01 GMT"
+            window.location.reload()
+            document.location.href = "/login"
+        },
     }
 }
 </script>
