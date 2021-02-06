@@ -25,9 +25,7 @@
             </div>
             <div class="col-6 col-lg-2 order-3 order-lg-4">
                 <select class="form-control" id="exampleFormControlSelect1">
-                    <option selected>Все города</option>
-                    <option>Москва</option>
-                    <option>Санкт-Петербург</option>
+                    <option v-for="item in cities" :key="item">{{item}}</option>
                 </select>
             </div>
         </div>
@@ -79,11 +77,16 @@ export default {
     data(){
         return{
             projects: [],
+            cities: [],
+            category: '',
+            type_help: '',
+            city: '',
         }
     },
     beforeMount(){
         fetch(this.$store.state.serverIp + '/get_projects/', {
-            method: 'GET',
+            method: 'POST',
+            body: JSON.stringify({}),
         })
         .then(response => {
             return response.json()
@@ -96,7 +99,8 @@ export default {
                 window.location.reload()
             }
             else{
-                this.projects = data
+                this.projects = data[0]
+                this.cities = data[1]
             }
         })
         .catch(err => {
