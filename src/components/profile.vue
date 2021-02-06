@@ -48,22 +48,12 @@
                             <span style="font-size: 0.85em; font-weight: 600;">Вы можете помочь</span> <br>
                             <span style="font-size: 0.85em;">{{item.help}}</span>
                         </div>
-                        <div class="info">
-                            <p style="color: #999999;">
-                                <small><strong>{{item.city}}</strong></small>
-                            </p>
-                            <div style="text-align: justify;">
-                                <span style="font-size: 1.2em;">{{item.title}}</span> <br>
-                                <span style="font-size: 0.85em; font-weight: 600;">Вы можете помочь</span> <br>
-                                <span style="font-size: 0.85em;">{{item.help}}</span>
-                            </div>
-                            <hr style="marging-bottom: 0px;">
-                            <div class="row" style="margin: 0px; line-height: 20px; vertical-align: baseline;">
-                                <div class="col-12" style="font-size: 0.8em;">
-                                    <div style="text-align: justify;">
-                                        <strong>Цель {{item.money}}</strong>
-                                    </div>
-                                </div>
+                        <hr>
+                        <div class="row" style="margin: 0px; line-height: 20px; vertical-align: baseline;">
+                            <div class="col-12" style="font-size: 0.8em;">
+                                <div style="text-align: justify;">
+                                    <strong>Цель {{item.money}}</strong>
+                                 </div>
                             </div>
                         </div>
                     </div>
