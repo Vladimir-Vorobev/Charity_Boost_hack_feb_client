@@ -67,7 +67,7 @@
                     </div>
                 </form> <br>
             </div>
-            <div class="formbox mb-5" v-else-if="type_reg == 1">
+            <div class="formbox mb-5 mt-lg-3" v-else-if="type_reg == 1">
                 <form>
                     <h2 class="text-center">Форма регистрации для бизнеса</h2>
                     <div class="text-left" v-if="reg == 0">Пожалуйста, заполните форму и внимательно ознакомьтесь с Условиями пользования платформой. Поля со звездочкой(<span class="star">*</span>) обязательны к заполнению.</div><br>
