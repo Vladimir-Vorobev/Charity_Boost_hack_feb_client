@@ -23,11 +23,13 @@
             </div>
         </div>
         <div class="newsblock container-md mt-md-5 mt-3">
-            <div class="blockname mb-2">Новости</div>
+            <div class="blockname mb-3" style="margin-left: 15px;">Новости</div>
             <div class="row" style="margin: 0px;">
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                <div v-for="item in news" :key="item.id" class="col-12 col-md-6 col-lg-4 col-xl-3 mb-2">
                     <div class="news">
-
+                        <div class="date">
+                            <small>6 февраля 2021г.</small>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -41,6 +43,11 @@
 <script>
 export default {
     name: 'main_page',
+    data(){
+        return{
+            news: [1, 2, 3, 4, 5],
+        }
+    },
 }
 </script>
 
@@ -76,5 +83,12 @@ footer {
     border: #e0e0e0 solid 2px;
     border-radius: 5px;
     padding: 0px;
+    position: relative;
+}
+.news .date {
+    position: absolute;
+    top: 1px;
+    left: 5px;
+    color: #616161;
 }
 </style>
