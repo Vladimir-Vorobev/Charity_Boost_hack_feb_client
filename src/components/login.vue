@@ -1,28 +1,32 @@
 <template>
     <div class="main">
         <div class="container warp">
-            <form class="formbox needs-validation" novalidate>
-                <h2>Войти</h2>
-                <div class="form-group" style="text-align: left">
-                    <label for="exampleInputEmail1">Логин</label>
-                    <input name="text" id="email" class="form-control formInput" placeholder='Логин' required>
-                </div>
-                <div style="text-align: left">
-                    <label for="password">Пароль</label>
-                </div>
-                <div class="form-label-group input-group">
-                    <input type="password" id="password" class="form-control formInput" name="password" placeholder="Пароль" required>
-                    <div class="input-group-append" @click="showHidePwd()" style="cursor: pointer;">
-                        <span class="input-group-text showHidePwd">
-                            <i id="eye" class="far fa-eye-slash"></i>
-                        </span>
+            <div class="formbox">
+                <form class="needs-validation" novalidate>
+                    <h2>Войти</h2>
+                    <div class="form-group" style="text-align: left">
+                        <label for="exampleInputEmail1">Логин</label>
+                        <input name="text" id="email" class="form-control formInput" placeholder='Логин' required>
                     </div>
-                </div>
-                <div class="form-row"> 
-                    <button class="btn btn-rounded-blue btn-lg" @click="loginUser()">Войти</button>
-                </div>
-            </form> <br>
-            <router-link to="/registration" class="router-link">Нет аккаунта?</router-link>
+                    <div style="text-align: left">
+                        <label for="password">Пароль</label>
+                    </div>
+                    <div class="form-label-group input-group">
+                        <input type="password" id="password" class="form-control formInput" name="password" placeholder="Пароль" required>
+                        <div class="input-group-append" @click="showHidePwd()" style="cursor: pointer;">
+                            <span class="input-group-text showHidePwd">
+                                <i id="eye" class="far fa-eye-slash"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-row"> 
+                        <button class="btn btn-rounded-blue btn-lg" @click="loginUser()">Войти</button>
+                    </div>
+                </form> <br>
+                <p  style="text-align: left;">
+                    <router-link to="/registration" class="router-link">Нет аккаунта?</router-link>
+                </p>
+            </div>
         </div>
         <div class="footer"><Footer></Footer></div> 
     </div>
@@ -126,7 +130,11 @@ export default {
     position: relative;
     margin-bottom: 1rem;
 }
-
+.formbox {
+    padding: 30px;
+    border-radius: 30px;
+    background-color: rgba(236, 236, 236, 0.829);
+}
 i:hover {
     cursor: pointer;
 }
