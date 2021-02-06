@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group row">
                             <label for="exampleInputEmail1">Номер телефона<span class="star">*</span> (для связи)</label>
-                            <input type="phone" name="phone" class="form-control formInput">
+                            <input type="tel" name="phone" class="form-control formInput" v-phone>
                         </div>
                         <div class="form-group row">
                             <label for="exampleInputEmail1">Адрес<span class="star">*</span></label>
@@ -86,7 +86,7 @@
                         </div>
                         <div class="form-group row">
                             <label for="exampleInputEmail1">Номер телефона<span class="star">*</span> (для связи)</label>
-                            <input type="phone" name="phone" class="form-control formInput">
+                            <input type="tel" name="phone" class="form-control formInput" v-phone>
                         </div>
                         <div class="form-group row">
                             <label for="exampleInputPassword1">Пароль<span class="star">*</span></label>
