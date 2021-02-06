@@ -2,10 +2,10 @@
 <div>
     <main>
         <div class="row justify-content-around mb-3"  style="margin: 0px;">
-            <div class="col-4 col-lg-2">
+            <div class="col-5 col-lg-2 order-1">
                 <h3 style="margin: 0px; padding: 6px 0px;">Помочь:</h3>
             </div>
-            <div class="col-8 col-lg-10 categories">
+            <div class="col-12 col-lg-8 categories order-3 order-lg-2">
                 <ul>
                     <li class="active">Все</li>
                     <li>Детям</li>
@@ -14,6 +14,13 @@
                     <li>Животным</li>
                     <li>Природе</li>
                 </ul>
+            </div>
+            <div class="col-7 col-lg-2 order-2 order-lg-3">
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option selected>Все города</option>
+                    <option>Москва</option>
+                    <option>Санкт-Петербург</option>
+                </select>
             </div>
         </div>
         <div class="row justify-content-around" style="margin: 0px;">

@@ -9,7 +9,7 @@ export const APP_STORE = {
 		email: undefined,
 		role: '',
 		SessionID: '',
-		serverIp: 'http://127.0.0.1:5000',
+		serverIp: 'https://charityserver.tk',
 	},
 	mutations: {
 		GET_USER_EMAIL(state, value) {
