@@ -19,8 +19,8 @@
                     <input type="email" id="help" class="form-control formInput" @input="add_help()">
                 </div>
                 <div class="form-group row">
-                    <label for="exampleInputEmail1">Номер телефона<span class="star">*</span></label>
-                    <input type="email" name="phone" class="form-control formInput">
+                    <label for="exampleInputEmail1">Цена<span class="star">*</span></label>
+                    <input type="email" id="money" class="form-control formInput" @input="add_money()">
                 </div>
             </form>
         </div>
@@ -44,7 +44,7 @@
                     <div class="row" style="margin: 0px; line-height: 20px; vertical-align: baseline;">
                         <div class="col-12" style="font-size: 0.8em;">
                             <div style="text-align: justify;">
-                                <strong>Цель 100 000Р</strong>
+                                <strong>Цель {{money}}</strong>
                             </div>
                         </div>
                     </div>
@@ -75,6 +75,7 @@ export default {
             city: '',
             title: '',
             help: '',
+            money: '',
         }
     },
     beforeMount(){
@@ -107,6 +108,9 @@ export default {
         },
         add_help(){
             this.help = document.getElementById('help').value
+        },
+        add_money(){
+            this.money = document.getElementById('money').value
         },
     }
 }
