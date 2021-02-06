@@ -7,12 +7,12 @@
             </div>
             <div class="col-12 col-lg-6 categories order-4 order-lg-2">
                 <ul>
-                    <li class="active">Все</li>
-                    <li>Детям</li>
-                    <li>Взрослым</li>
-                    <li>Пожилым</li>
-                    <li>Животным</li>
-                    <li>Природе</li>
+                    <li name="all" class="active" @click="setCategory('all')">Все</li>
+                    <li name="children" @click="setCategory('children')">Детям</li>
+                    <li name="adults" @click="setCategory('adults')">Взрослым</li>
+                    <li name="elderly" @click="setCategory('elderly')">Пожилым</li>
+                    <li name="animals" @click="setCategory('animals')">Животным</li>
+                    <li name="nature" @click="setCategory('nature')">Природе</li>
                 </ul>
             </div>
             <div class="col-6 col-lg-2 order-2 order-lg-3 mb-2">
@@ -81,6 +81,7 @@ export default {
             category: '',
             type_help: '',
             city: '',
+            active: 'all',
         }
     },
     beforeMount(){
@@ -106,6 +107,15 @@ export default {
         .catch(err => {
             console.log(err)
         })
+    },
+    methods: {
+        setCategory(category) {
+            var oldelem = document.getElementsByName(this.active);
+            var newelem = document.getElementsByName(category);
+            oldelem[0].classList.remove("active");
+            newelem[0].classList.add("active");
+            this.active = category;
+        }
     },
 }
 </script>
