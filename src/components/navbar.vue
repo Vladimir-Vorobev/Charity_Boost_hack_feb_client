@@ -74,7 +74,7 @@ export default {
                     window.location.reload()
                 }
                 if(this.$store.state.email != undefined){
-                    this.loginText = this.$store.state.email
+                    this.loginText = data.name
                     this.role = this.$store.state.role
                     if(this.role == 'fund'){
                         this.$store.state.name = data.name
