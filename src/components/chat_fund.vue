@@ -506,9 +506,9 @@ textarea:focus {
         width: 25%;
     }
     .send {
-        width: 25%;
+        width: 15%;
     }
-    textarea {
+    /* textarea {
         left: 0px;
         right: 0px;
         bottom: 50px;
@@ -522,11 +522,36 @@ textarea:focus {
         box-shadow: none;
         transition: all .4s cubic-bezier(0.2, -0.2, 0.2, 1.2);
         z-index: 200;
+    } */
+    textarea, textarea:hover {
+        position: absolute;
+        bottom: 0px;
+        left: 5%;
+        right: 11%;
+        width: 75%;
+        height: 45px;
+        z-index: 100;
+        background: #fafafa;
+        border: none;
+        outline: none;
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-top: 1%;
+        color: #666;
+        font-weight: 400;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        overflow: hidden;
+        resize: none;
+        z-index: 200;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        transition: all .4s cubic-bezier(0.565, -0.260, 0.255, 1.410);
     }
     textarea:focus {
         height: 30vh;
         margin-top: 30vh;
         box-shadow: 0px -20px 20px rgba(0,0,0,0.1);
+        width: 90%;
     }
     form:focus ~ .typezone {
         bottom: 50vh;
