@@ -57,7 +57,7 @@
                             </div>
                             <div class="row justify-content-center" style="margin: 0px; width: 100%;">
                                 <div class="col-12" style="padding: 3px;">
-                                    <button class="btn btn-indigo btn-almbb-small" style="width: 100%; font-size: 1.1em; text-transform: none;">Связаться с Фондом</button>
+                                    <button class="btn btn-indigo btn-almbb-small" style="width: 100%; font-size: 1.1em; text-transform: none;" @click="connect_with_fund(item.user_id, item.num, item.fund)">Связаться с Фондом</button>
                                 </div>
                             </div>
                         </div>
@@ -82,6 +82,7 @@ export default {
             type_help: '',
             city: '',
             active: 'all',
+            socket: this.$store.state.socket,
         }
     },
     beforeMount(){
@@ -106,6 +107,10 @@ export default {
         })
         .catch(err => {
             console.log(err)
+        })
+
+        this.socket.on('create_chat', (res) => {
+            document.location.href = '/chat-fund/' + this.$store.state.user_id + '-' + res.user_f_id + '-' + res.num
         })
     },
     methods: {
@@ -162,6 +167,9 @@ export default {
                 console.log(err)
             })
         },
+        connect_with_fund(user_id, num, fund){
+            this.socket.emit('create_chat', {email: this.$store.getters.email, session_id: this.$store.getters.SessionID, user_id: this.$store.state.user_id, num: num, user_f_id: user_id, fund: fund, business: this.$store.state.name})
+        }
     },
 }
 </script>

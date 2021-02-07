@@ -82,11 +82,13 @@ export default {
                         this.$store.state.phone = data.phone
                         this.$store.state.site = data.site
                         this.$store.state.address = data.address
+                        this.$store.state.user_id = data.user_id
                     }
                     else if(this.role == 'business'){
                         this.$store.state.name = data.name
                         this.$store.state.full_name_responsible_person = data.full_name_responsible_person
                         this.$store.state.phone = data.phone
+                        this.$store.state.user_id = data.user_id
                     }
                     document.querySelector('.login').style.display = 'none'
                     document.querySelector('.person_menu').style.display = 'block'

@@ -25,7 +25,7 @@ const routes = [
   { path: '/market', component: market },
   { path: '/profile', component: profile },
   { path: '/connect_with_admin', component: connect_with_admin },
-  { path: '/chat_fund/:id', component: chat_fund },
+  { path: '/chat-fund/:id', component: chat_fund },
 ]
 
 const router = new VueRouter({

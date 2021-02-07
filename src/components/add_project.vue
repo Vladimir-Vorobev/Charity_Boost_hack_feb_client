@@ -182,7 +182,7 @@ export default {
             else{
                 fetch(this.$store.state.serverIp + '/add_project/', {
                     method: 'POST',
-                    body: JSON.stringify({email: this.$store.getters.email, session_id: this.$store.getters.SessionID, image: this.image, city: this.city, title: this.title, help: this.help, money: this.money, category: this.category, type_help: this.type_help}),
+                    body: JSON.stringify({email: this.$store.getters.email, session_id: this.$store.getters.SessionID, user_id: this.$store.state.user_id, image: this.image, city: this.city, title: this.title, help: this.help, money: this.money, category: this.category, type_help: this.type_help, fund: this.$store.state.name}),
                 })
                 .then(response => {
                     return response.json()
