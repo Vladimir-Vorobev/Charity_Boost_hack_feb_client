@@ -20,7 +20,7 @@
             </li>
         </ol>
         <div class="typezone">
-            <form><textarea type="text" id="mes_to_send"></textarea><input class="send" type="submit" @click="send_message()"/></form>
+            <form><textarea type="text" id="mes_to_send" placeholder="Напишите что нибудь"></textarea><input class="send" type="submit" @click="send_message()" value=""/></form>
         </div>
     </main>
 </div>
