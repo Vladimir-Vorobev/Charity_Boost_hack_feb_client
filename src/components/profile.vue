@@ -34,26 +34,30 @@
         <hr>
         <h3>Текущие проекты</h3>
         <div class="row justify-content-left" style="margin: 0px;">
-            <div class="col-12 col-md-4-6 col-lg-4 col-xl-3" v-for="item in projects" :key="item.id">
+            <div class="col-12 col-md-4-6 col-lg-4 col-xl-3 mb-2" v-for="item in projects" :key="item.id">
                 <div class="project">
                     <div class="image">
                         <img :src="item.image">
                     </div>
                     <div class="info">
-                        <p style="color: #999999;">
+                        <p style="color: #999999; margin-bottom: 5px;">
                             <small><strong>{{item.city}}</strong></small>
                         </p>
-                        <div style="text-align: justify;">
-                            <span style="font-size: 1.2em;">{{item.title}}</span> <br>
-                            <span style="font-size: 0.85em; font-weight: 600;">Вы можете помочь</span> <br>
-                            <span style="font-size: 0.85em;">{{item.help}}</span>
+                        <div style="text-align: left;">
+                            <span style="font-size: 1em;">{{item.title}}</span> <br>
+                            <span style="font-size: 0.7em;">Категория: {{item.category}} | </span>
+                            <span style="font-size: 0.7em;">Тип помощи: {{item.type_help}}</span> <br>
+                            <span style="font-size: 0.8em; font-weight: 600;">Вы можете помочь</span> <br>
+                            <span style="font-size: 0.8em;">{{item.help}}</span>
                         </div>
-                        <hr>
-                        <div class="row" style="margin: 0px; line-height: 20px; vertical-align: baseline;">
-                            <div class="col-12" style="font-size: 0.8em;">
-                                <div style="text-align: justify;">
-                                    <strong>Цель: {{item.money}}</strong>
-                                 </div>
+                        <div style="width: 95%; position: absolute; bottom: 10px;">
+                            <hr style="margin: 3px;">
+                            <div class="row" style="margin: 0px; line-height: 22px; vertical-align: baseline;">
+                                <div class="col-12" style="font-size: 0.8em;">
+                                    <div style="text-align: justify;">
+                                        <strong>Цель: {{item.money}}</strong>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
