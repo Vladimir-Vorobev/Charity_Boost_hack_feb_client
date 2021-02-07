@@ -69,7 +69,7 @@
                             <div class="row" style="margin: 0px; line-height: 22px; vertical-align: baseline;">
                             <div class="col-12" style="font-size: 0.8em;">
                                 <div style="text-align: justify;">
-                                    <strong>Цель {{money}}</strong>
+                                    <strong>Цель: {{money}}</strong>
                                 </div>
                             </div>
                         </div>
