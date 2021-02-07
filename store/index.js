@@ -9,8 +9,10 @@ export const APP_STORE = {
 		full_name_responsible_person: '',
 		email: undefined,
 		role: '',
+		user_id: '',
 		SessionID: '',
-		serverIp: 'https://charityserver.tk',
+		serverIp: 'http://127.0.0.1:5000', // https://charityserver.tk
+		socket: require('socket.io-client')('http://127.0.0.1:5000/'),
 	},
 	mutations: {
 		GET_USER_EMAIL(state, value) {
