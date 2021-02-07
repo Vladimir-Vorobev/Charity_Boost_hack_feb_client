@@ -461,7 +461,8 @@ textarea:focus {
     outline: none;
     z-index: 100;
     cursor: pointer;
-    background-image: url(https://i.imgur.com/VSQxJKL.png);
+    /* background-image: url(https://i.imgur.com/VSQxJKL.png); */
+    background-image: url('./../assets/send.png');
     background-repeat: no-repeat;
     background-size: 34px 34px;
     background-position: 45% 9px;
