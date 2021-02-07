@@ -5,7 +5,7 @@
             <div class="name">{{name}}</div>
         </div>
         <ol class="chat" v-for="item in messages" :key="item">
-            <li class="other" v-if="item.from != user_id">
+            <li class="other" v-if="its_my(item.from)">
                 <div class="msg">
                     <div class="user">{{name}}</div>
                     <p>{{item.mes}}</p>
@@ -36,7 +36,6 @@ export default {
             socket: this.$store.state.socket,
             id: this.$route.params.id.split('-'),
             name: undefined,
-            user_id: this.$store.state.user_id,
             messages: [],
         }
     },
@@ -60,6 +59,10 @@ export default {
             let mes = document.getElementById('mes_to_send').value
             this.socket.emit('send_message', {email: this.$store.getters.email, session_id: this.$store.getters.SessionID, user_id: this.id[0], user_f_id: this.id[1], num: this.id[2], mes: mes, from: this.$store.state.user_id})
             document.getElementById('mes_to_send').value = ''
+        },
+        its_my(from){
+            if(from != this.$store.state.user_id) return true
+            else return false
         },
     },
 }
