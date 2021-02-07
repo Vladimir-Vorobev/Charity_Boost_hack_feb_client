@@ -4,7 +4,8 @@
         <div class="menu">
             <div class="name">{{name}}</div>
         </div>
-        <ol class="chat" v-for="item in messages" :key="item">
+
+        <ol class="chat" style="padding: 0px; margin: 15px;" v-for="item in messages" :key="item">
             <li class="other" v-if="its_my(item.from)">
                 <div class="msg">
                     <div class="user">{{name}}</div>
