@@ -54,6 +54,7 @@ export default {
         return {
             loginText: 'Войти',
             role: '',
+            socket: this.$store.state.socket,
         }
     },
     beforeMount(){
@@ -104,7 +105,11 @@ export default {
                     allowEnterKey: false,
                 })
             })
-        } 
+        }
+
+        this.socket.on('connect', () => {
+            this.socket.emit('new_sid', {email: this.$store.getters.email, session_id: this.$store.getters.SessionID})
+        })
     },
 
     methods: {

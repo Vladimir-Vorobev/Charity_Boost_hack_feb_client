@@ -2,37 +2,25 @@
 <div>
     <main>
         <div class="menu">
-            <div class="name">Chat name</div>
+            <div class="name">{{name}}</div>
         </div>
-        <ol class="chat">
-            <li class="other">
+        <ol class="chat" v-for="item in messages" :key="item">
+            <li class="other" v-if="item.from != user_id">
                 <div class="msg">
-                    <div class="user">Marga</div>
-                    <p>Dude</p>
-                    <p>Want to go dinner?</p>
+                    <div class="user">{{name}}</div>
+                    <p>{{item.mes}}</p>
                     <time>20:17</time>
                 </div>
             </li>
-            <li class="self">
+            <li class="self" v-else>
                 <div class="msg">
-                    <p>Puff...</p>
-                    <p>I'm still doing the Góngora comment...</p>
-                    <p>Better other day</p>
-                    <time>20:18</time>
-                </div>
-            </li>
-            <div class="day">Today</div>
-            <li class="other unread">
-                <div class="msg">
-                    <div class="user">Brotons</div>
-                    <p>What comment about Góngora?</p>
+                    <p>{{item.mes}}</p>
                     <time>20:18</time>
                 </div>
             </li>
         </ol>
         <div class="typezone">
-            <form><textarea type="text" placeholder="Say something"></textarea><input type="submit" class="send" value=""/></form>
-            <!-- <div class="emojis"></div> -->
+            <form><textarea type="text" id="mes_to_send"></textarea><input class="send" type="submit" @click="send_message()"/></form>
         </div>
     </main>
 </div>
@@ -45,8 +33,34 @@ export default {
     name: 'chat_fund',
     data(){
         return{
-            
+            socket: this.$store.state.socket,
+            id: this.$route.params.id.split('-'),
+            name: undefined,
+            user_id: this.$store.state.user_id,
+            messages: [],
         }
+    },
+    beforeMount(){
+        if(this.$store.getters.email != undefined) this.socket.emit('get_chat', {email: this.$store.getters.email, session_id: this.$store.getters.SessionID, user_id: this.id[0], user_f_id: this.id[1], num: this.id[2]})
+        else document.location.href = '/login'
+
+        this.socket.on('get_chat', (res) => {
+            if(this.$store.state.role == 'fund') this.name = res.business
+            else this.name = res.fund
+            this.messages = res.messages
+            console.log(res)
+        })
+        this.socket.on('new_message', (res) => {
+            this.messages.push(res)
+        })
+    },
+    methods:{
+        send_message(){
+            event.preventDefault()
+            let mes = document.getElementById('mes_to_send').value
+            this.socket.emit('send_message', {email: this.$store.getters.email, session_id: this.$store.getters.SessionID, user_id: this.id[0], user_f_id: this.id[1], num: this.id[2], mes: mes, from: this.$store.state.user_id})
+            document.getElementById('mes_to_send').value = ''
+        },
     },
 }
 </script>
