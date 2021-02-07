@@ -40,15 +40,15 @@
                         <img :src="item.image">
                     </div>
                     <div class="info">
-                        <p style="color: #999999; margin-bottom: 5px;">
+                        <p style="color: #999999; margin-bottom: 4px;">
                             <small><strong>{{item.city}}</strong></small>
                         </p>
                         <div style="text-align: left;">
                             <span style="font-size: 1em;">{{item.title}}</span> <br>
                             <span style="font-size: 0.7em;">Категория: {{item.category}} | </span>
                             <span style="font-size: 0.7em;">Тип помощи: {{item.type_help}}</span> <br>
-                            <span style="font-size: 0.8em; font-weight: 600;">Вы можете помочь</span> <br>
-                            <span style="font-size: 0.8em;">{{item.help}}</span>
+                            <span style="font-size: 0.75em; font-weight: 600;">Вы можете помочь</span> <br>
+                            <span style="font-size: 0.75em;">{{item.help}}</span>
                         </div>
                         <div style="width: 95%; position: absolute; bottom: 10px;">
                             <hr style="margin: 3px;">
