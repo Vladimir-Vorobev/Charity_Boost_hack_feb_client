@@ -7,21 +7,21 @@
             <div class="members"><b>You</b>, Marga, Charo & Brotons</div>
         </div>
         <ol class="chat">
-            <li class="other">
-            <div class="msg">
-                <div class="user">Marga<span class="range admin">Admin</span></div>
-                <p>Dude</p>
-                <p>Want to go dinner? <emoji class="pizza"></emoji></p>
-                <time>20:17</time>
-            </div>
+            <li class="other unread">
+                <div class="msg">
+                    <div class="user">Marga<span class="range admin">Admin</span></div>
+                    <p>Dude</p>
+                    <p>Want to go dinner? <emoji class="pizza"></emoji></p>
+                    <time>20:17</time>
+                </div>
             </li>
             <li class="self">
-            <div class="msg">
-                <p>Puff...</p>
-                <p>I'm still doing the Góngora comment... <emoji class="books"></emoji></p>
-                <p>Better other day</p>
-                <time>20:18</time>
-            </div>
+                <div class="msg">
+                    <p>Puff...</p>
+                    <p>I'm still doing the Góngora comment... <emoji class="books"></emoji></p>
+                    <p>Better other day</p>
+                    <time>20:18</time>
+                </div>
             </li>
             <li class="other">
             <div class="msg">
@@ -613,5 +613,16 @@ textarea:focus {
     .chat .notification time {
         right: 10px;
     }
+}
+/* .tick {
+    font-size: 0.7rem;
+    color: rgba(0,0,0,.35);
+    margin-top: 3px;
+    margin-right: ;
+    float: right;
+    cursor: default;
+} */
+.unread {
+    background-color: rgba(245, 245, 245, 0.5);
 }
 </style>
