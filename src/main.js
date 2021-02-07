@@ -11,6 +11,7 @@ import add_project from './components/add_project.vue'
 import market from './components/market.vue'
 import profile from './components/profile.vue'
 import connect_with_admin from './components/connect_with_admin.vue'
+import chat_fund from './components/chat_fund.vue'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
@@ -24,6 +25,7 @@ const routes = [
   { path: '/market', component: market },
   { path: '/profile', component: profile },
   { path: '/connect_with_admin', component: connect_with_admin },
+  { path: '/chat_fund/:id', component: chat_fund },
 ]
 
 const router = new VueRouter({
